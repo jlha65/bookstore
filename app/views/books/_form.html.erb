@@ -11,39 +11,43 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="form-group">
     <%= form.label :book_id, style: "display: block" %>
     <%= form.number_field :book_id %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= form.label :title, style: "display: block" %>
     <%= form.text_field :title %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= form.label :description, style: "display: block" %>
     <%= form.text_field :description %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= form.label :author, style: "display: block" %>
     <%= form.text_field :author %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= form.label :price, style: "display: block" %>
     <%= form.text_field :price %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= form.label :stock, style: "display: block" %>
     <%= form.number_field :stock %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= form.label :available, style: "display: block" %>
     <%= form.check_box :available %>
+  </div>
+
+  <div class="form-group">
+    <%= form.text_field :user_id, class:"form-control", value: current_user.id, type: :hidden %>
   </div>
 
   <div>
