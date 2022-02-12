@@ -16,7 +16,11 @@
   <div class="field">
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
-    <%= current_user.inspect%>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
