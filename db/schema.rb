@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_12_232929) do
+ActiveRecord::Schema[7.0].define(version: 2022_02_13_104241) do
   create_table "books", force: :cascade do |t|
     t.integer "book_id"
     t.string "title"
     t.string "description"
     t.string "author"
-    t.float "price"
+    t.float "price", default: 1.0
     t.integer "stock"
     t.boolean "available"
     t.datetime "created_at", null: false
@@ -24,6 +24,28 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_12_232929) do
     t.integer "user_id"
     t.index ["book_id"], name: "index_books_on_book_id"
     t.index ["user_id"], name: "index_books_on_user_id"
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "line_items", force: :cascade do |t|
+    t.integer "quantity", default: 1
+    t.integer "book_id"
+    t.integer "cart_id"
+    t.integer "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.text "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
