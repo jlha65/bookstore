@@ -1,10 +1,30 @@
-<%= render @book %>
 
+
+<div class="container-fluid">
+  <div class="card mb-3">
+    <%= image_tag("book.jpg", :alt => "book", :class => "card-img-top") %>
+    <div class="card-body">
+      <h5 class="card-title"><%= @book.title %> ($<%= @book.price%>)</h5>
+      <p class="card-text"> Author: <%= @book.author %></p>
+      <p class="card-text"> Description: <%= @book.description %></p>
+      <p class="card-text"><small class="text-muted">Seller: <%= @book.user_id %></small></p>
+      <%= button_to "Add to cart", line_items_path(:book_id => @book.id), class:'btn btn-primary'%>
+      <br>
+      <div class="btn-group" role="group">
+        <%= link_to "Edit this book", edit_book_path(@book), class:'btn btn-secondary' %>
+        <%= button_to "Remove this book from sale", @book, method: :delete, class:'btn btn-danger' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% 
+=begin %>
 <div>
   <%= link_to "Edit this book", edit_book_path(@book) %> |
   <%= link_to "Back to books", books_path %>
-
   <%= button_to "Add to cart", line_items_path(:book_id => @book.id)%>
-
   <%= button_to "Destroy this book", @book, method: :delete %>
 </div>
+<% 
+=end %>

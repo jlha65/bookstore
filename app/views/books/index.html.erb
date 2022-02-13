@@ -1,12 +1,9 @@
 <h1>Books</h1>
 
 <div id="books">
-  <% @books.each do |book| %>
-    <%= render book %>
-    <p>
-      <%= link_to "Show this book", book %>
-    </p>
-  <% end %>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <% @books.each do |book| %>
+      <%= render book %>
+    <% end %>
+  </div>
 </div>
-
-<%= link_to "New book", new_book_path %>

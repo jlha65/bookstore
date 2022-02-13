@@ -1,37 +1,14 @@
-<div id="<%= dom_id book %>">
-  <p>
-    <strong>Book:</strong>
-    <%= book.book_id %>
-  </p>
-
-  <p>
-    <strong>Title:</strong>
-    <%= book.title %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= book.description %>
-  </p>
-
-  <p>
-    <strong>Author:</strong>
-    <%= book.author %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= book.price %>
-  </p>
-
-  <p>
-    <strong>Stock:</strong>
-    <%= book.stock %>
-  </p>
-
-  <p>
-    <strong>Available:</strong>
-    <%= book.available %>
-  </p>
-
+<div class="col" id="<%= dom_id book %>">
+  <div class="card" style="width: 18rem;">
+    <div class="card-header">
+    <h4> <%= book.title %> </h4>
+    </div>
+    <%= image_tag("book.jpg", :alt => "book", :class => "card-img-top") %>
+    <div class="card-body">
+      <h5 class="card-title"> $<%= book.price %></h5>
+      <p class="card-text"> Author: <%= book.author %></p>
+      <%= link_to "Show this book", book, class:"btn btn-primary" %>
+    </div>
+  </div>
 </div>
+
