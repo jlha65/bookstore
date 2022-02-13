@@ -38,13 +38,11 @@
         <% end %>
       </ul>
       <form class="d-flex">
-        <input
-          class="form-control me-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
-        <button class="btn btn-outline-success" type="submit">Search</button>
+
+        <%= simple_form_for :search, url: books_path, method: "GET", html: { class: 'form-control me-2', type: 'search', placeholder: 'search' } do |f| %>
+        <%= f.input :title, input_html: {value: ""} %>
+        <%= f.submit "Search", class: "btn btn-outline-success" %>
+        <% end %>
       </form>
     </div>
   </div>
