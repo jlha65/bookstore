@@ -1,6 +1,21 @@
 class OrdersController < ApplicationController
   def index
     @orders = Order.all
+    @user_orders = Array.new
+    @line_items = LineItem.all
+    @line_items.each do |item|
+      book = Book.find(item.book_id)
+      if book.user_id == current_user.id
+        # puts book.user_id
+        # puts current_user.id
+        # puts item.order_id
+        # puts Order.find(item.order_id)
+        if item.order_id
+          @user_orders << Order.find(item.order_id)
+        end
+      end
+    end
+    puts @user_orders.inspect
   end
 
   def show

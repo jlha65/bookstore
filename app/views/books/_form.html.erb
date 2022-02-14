@@ -11,42 +11,37 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= form.label :book_id, style: "display: block" %>
-    <%= form.number_field :book_id %>
-  </div>
-
-  <div class="form-group">
+  <div class="form-label">
     <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class:"form-control" %>
   </div>
 
-  <div class="form-group">
+  <div class="form-label">
     <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
+    <%= form.text_field :description, class:"form-control" %>
   </div>
 
-  <div class="form-group">
+  <div class="form-label">
     <%= form.label :author, style: "display: block" %>
-    <%= form.text_field :author %>
+    <%= form.text_field :author, class:"form-control" %>
   </div>
 
-  <div class="form-group">
+  <div class="form-label">
     <%= form.label :price, style: "display: block" %>
-    <%= form.text_field :price %>
+    <%= form.text_field :price, class:"form-control" %>
   </div>
 
-  <div class="form-group">
+  <div class="form-label">
     <%= form.label :stock, style: "display: block" %>
-    <%= form.number_field :stock %>
+    <%= form.number_field :stock, class:"form-control" %>
   </div>
 
-  <div class="form-group">
+  <div class="form-label">
     <%= form.label :available, style: "display: block" %>
-    <%= form.check_box :available %>
+    <%= form.check_box :available, checked: true, class:"form-check-input" %>
   </div>
 
-  <div class="form-group">
+  <div class="form-label">
     <%= form.text_field :user_id, class:"form-control", value: current_user.id, type: :hidden %>
   </div>
 

@@ -9,7 +9,12 @@
       <p class="card-text"> Description: <%= @book.description %></p>
       <p class="card-text"> Seller: <%= @book.user_id %></p>
       <p class="card-text"><small class="text-muted">In Stock: <%= @book.stock %></small></p>
-      <%= button_to "Add to cart", line_items_path(:book_id => @book.id), class:'btn btn-primary'%>
+      <% if @book.available == false%>
+        <div class="alert alert-warning" role="alert">
+          This book has been set as unavailable by the seller.
+        </div>
+      <% end %>
+      <%= button_to "Add to cart", line_items_path(:book_id => @book.id), class:'btn btn-primary', :disabled => (@book.stock <= 0 or @book.available == false)%>
       <br>
 
       <% if @book.user_id == current_user.id %>
